@@ -14,8 +14,10 @@ const ReservationList = ({ reservations, tableId }) => {
           return (
             <li key={id}>
               <span>{formattedDate}</span>
-              <button>change time</button>
-              <button onClick={() => deleteReservation({ id, tableId })}>
+              <button
+                className='btn cansel-reservation-btn'
+                onClick={() => deleteReservation({ id, tableId })}
+              >
                 cancel reservation
               </button>
             </li>

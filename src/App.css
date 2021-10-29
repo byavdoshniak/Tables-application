@@ -1,52 +1,5 @@
 /*
 =============== 
-VARIABLES
-===============
-*/
-
-:root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(205, 86%, 17%);
-  --clr-primary-2: hsl(205, 77%, 27%);
-  --clr-primary-3: hsl(205, 72%, 37%);
-  --clr-primary-4: hsl(205, 63%, 48%);
-  /* primary/main color */
-  --clr-primary-5: hsl(205, 78%, 60%);
-  /* lighter shades of primary color */
-  --clr-primary-6: hsl(205, 89%, 70%);
-  --clr-primary-7: hsl(205, 90%, 76%);
-  --clr-primary-8: hsl(205, 86%, 81%);
-  --clr-primary-9: hsl(205, 90%, 88%);
-  --clr-primary-10: hsl(205, 100%, 96%);
-  /* darkest grey - used for headings */
-  --clr-grey-1: hsl(209, 61%, 16%);
-  --clr-grey-2: hsl(211, 39%, 23%);
-  --clr-grey-3: hsl(209, 34%, 30%);
-  --clr-grey-4: hsl(209, 28%, 39%);
-  /* grey used for paragraphs */
-  --clr-grey-5: hsl(210, 22%, 49%);
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
-  --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
-  --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-black: #222;
-  --transition: all 0.3s linear;
-  --spacing: 0.1rem;
-  --radius: 0.25rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --max-width: 1170px;
-  --fixed-width: 620px;
-}
-
-/*
-=============== 
 GLOBAL STYLING
 ===============
 */
@@ -54,6 +7,32 @@ GLOBAL STYLING
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: lato, sans-serif;
+  overflow-x: hidden;
+}
+
+.btn {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  display: inline-block;
+  padding: 10px 20px;
+  position: relative;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  border-color: rgb(42, 42, 42);
+}
+
+.btn:active {
+  background-color: rgba(255, 255, 255, 0.712);
 }
 
 /*
@@ -64,6 +43,7 @@ NAVBAR
 
 nav {
   background: rgb(42, 42, 42);
+  height: 4.5rem;
 }
 
 .nav-center {
@@ -80,7 +60,7 @@ nav {
 }
 .links-container {
   margin: 0.7rem;
-  display: flex;
+  display: none;
   text-align: center;
   align-items: center;
 }
@@ -90,10 +70,65 @@ nav {
   text-decoration: none;
   padding: 0 0.4rem;
   font-size: 1.2rem;
+  width: 33%;
 }
 
-.links-container a:hover {
+.links-container a:hover,
+.side-links-container a:hover {
   text-decoration: underline;
+}
+
+/*
+==============
+SIDEBAR STYLES
+==============
+*/
+
+.burger-menu-btn {
+  margin: 0.5rem 2rem;
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.712);
+  font-size: 2rem;
+  transition: all 0.3s linear;
+}
+
+.burger-menu-btn:hover {
+  font-size: 2.5rem;
+}
+
+.burger-menu {
+  position: absolute;
+  display: flex;
+  top: 4.5rem;
+  right: 0;
+  background-color: rgb(42, 42, 42);
+  z-index: 2;
+  transition: transform 0.3s linear;
+  transform: translateX(100%);
+}
+
+.burger-menu.show {
+  transform: translateX(0%);
+}
+
+.side-links-container {
+  margin: 1rem 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.side-links-container a {
+  color: rgba(255, 255, 255, 0.712);
+  text-decoration: none;
+  padding: 0 0.4rem;
+  font-size: 1.2rem;
+  width: 33%;
 }
 
 /*
@@ -103,17 +138,31 @@ SCHEME STYLES
 */
 
 .svg-container {
-  position: relative;
   display: flex;
   justify-content: center;
 }
 
-.floor-plan-svg {
-  width: 95vw;
+h1 {
+  text-align: center;
+  margin-top: 0.4rem;
 }
 
-.floor-plan h1 {
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sector-btn {
+  display: flex;
+  align-items: center;
+  border-color: rgba(42, 42, 42, 0.5);
+  color: rgba(42, 42, 42, 0.5);
   text-align: center;
+}
+
+.sector-btn:hover {
+  color: rgba(42, 42, 42, 0.9);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 /*
@@ -144,16 +193,21 @@ form {
     'submit submit';
 }
 
+form p {
+  text-align: center;
+}
+
 form h4 {
   grid-area: header;
   text-align: center;
 }
 
-#isOccupied {
+.occupied-btn {
   grid-area: occupied-btn;
 }
 
-#isReserved {
+.reservation-btn,
+.cancel-btn {
   grid-area: reservation-btn;
 }
 
@@ -164,6 +218,8 @@ form h4 {
 
 .submit-btn {
   grid-area: submit;
+  width: 25%;
+  margin: auto;
 }
 
 .hide {
@@ -174,16 +230,34 @@ form h4 {
   margin: 0.5rem;
 }
 
+.submenu > h3 {
+  text-align: center;
+  margin: 0.5rem;
+}
+
 .reservation-list h4 {
   text-align: center;
 }
 
 .reservation-list li {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   margin-top: 0.5rem;
   padding-bottom: 0.2rem;
   border-bottom: 2px solid black;
+  align-items: center;
+}
+
+/*
+==========
+ABOUT PAGE
+==========
+*/
+
+.about {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
 }
 
 /*
@@ -197,5 +271,24 @@ DESKTOPT STYLES
     height: 670px;
     width: 1000px;
     margin: 0 auto;
+  }
+
+  .about {
+    margin: 0 auto;
+    width: 60%;
+    align-content: center;
+  }
+
+  .about h1 {
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .links-container {
+    display: flex;
+  }
+
+  .burger-menu-btn {
+    display: none;
   }
 }

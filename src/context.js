@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react'
+import React, { useContext, useReducer, useEffect } from 'react'
 import data from './data'
 import { reducer } from './reducer'
 
@@ -8,6 +8,8 @@ const defaultState = {
   tables: data,
   isLoading: false,
   tableInfo: 0,
+  update: '',
+  isBurgerMenuOpen: false,
 }
 
 export const AppProvider = ({ children }) => {
@@ -30,6 +32,21 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: 'UPDATE_TABLE_INFO', payload: data.tableId })
   }
 
+  const toggleBurgerMenu = () => {
+    dispatch({ type: 'TOGGLE_BURGER_MENU' })
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      checkReservationTime()
+    }, 30000)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    checkReservationTime()
+  }, [state.update])
+
   return (
     <AppContext.Provider
       value={{
@@ -38,6 +55,7 @@ export const AppProvider = ({ children }) => {
         updateTableInfo,
         deleteReservation,
         checkReservationTime,
+        toggleBurgerMenu,
       }}
     >
       {children}

@@ -1,18 +1,11 @@
 import * as React from 'react'
-import { useEffect } from 'react'
 import { useGlobalContext } from '../context'
-function SvgSchemeMin(props) {
-  const { updateTableInfo, checkReservationTime, state } = useGlobalContext()
+function Sector1Scheme(props) {
+  const { updateTableInfo, state } = useGlobalContext()
+
   const displaySubMenu = (e) => {
     updateTableInfo(parseFloat(e.target.id))
   }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      checkReservationTime()
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <svg
@@ -108,6 +101,9 @@ function SvgSchemeMin(props) {
         fill='#D8D8D8'
       />
       <ellipse
+        id='4'
+        onClick={displaySubMenu}
+        fill={state.tables[3].isOccupied ? '#9b0909' : state.tables[3].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -115,7 +111,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 873.342 -139.77)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <path
         d='M57 9.996h0l-1.163-.883-1.164-.829-1.163-.78-1.163-.732-1.163-.687-1.164-.643-1.163-.602-1.163-.561-1.163-.523-1.164-.485-1.163-.448-1.163-.413-1.163-.378-1.164-.344-1.163-.311-1.163-.278-1.164-.247-1.163-.214-1.163-.183-1.163-.152-1.164-.121-1.163-.091L30.245.03 29.082 0h-1.164l-1.163.03-1.163.061-1.163.091-1.164.121-1.163.152-1.163.183-1.163.214-1.164.247-1.163.278-1.163.311-1.164.344-1.163.378-1.163.413-1.163.448-1.164.485-1.163.523-1.163.561-1.163.602-1.164.643-1.163.687-1.163.732-1.163.78-1.164.829L0 9.996h57z'
@@ -190,6 +185,9 @@ function SvgSchemeMin(props) {
         fill='#D8D8D8'
       />
       <ellipse
+        id='9'
+        onClick={displaySubMenu}
+        fill={state.tables[8].isOccupied ? '#9b0909' : state.tables[8].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -197,7 +195,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 1300.572 44.265)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <path
         d='M57 9.996h0l-1.163-.883-1.164-.829-1.163-.78-1.163-.732-1.163-.687-1.164-.643-1.163-.602-1.163-.561-1.163-.523-1.164-.485-1.163-.448-1.163-.413-1.163-.378-1.164-.344-1.163-.311-1.163-.278-1.164-.247-1.163-.214-1.163-.183-1.163-.152-1.164-.121-1.163-.091L30.245.03 29.082 0h-1.164l-1.163.03-1.163.061-1.163.091-1.164.121-1.163.152-1.163.183-1.163.214-1.164.247-1.163.278-1.163.311-1.164.344-1.163.378-1.163.413-1.163.448-1.164.485-1.163.523-1.163.561-1.163.602-1.164.643-1.163.687-1.163.732-1.163.78-1.164.829L0 9.996h57z'
@@ -272,6 +269,9 @@ function SvgSchemeMin(props) {
         fill='#D8D8D8'
       />
       <ellipse
+        id='6'
+        onClick={displaySubMenu}
+        fill={state.tables[5].isOccupied ? '#9b0909' : state.tables[5].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -279,7 +279,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 1088.207 -50.77)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <path
         d='M40.333 6.267v18.8l-.5 1.319-.166.495-.167.494-.167.33-.166.33L39 28.2l-.167.33-.166.165-.167.165-.167.329-.166.165-.167.165-.167.165H37.5l-.167.165h-.166l-.167.165-.167.165-.166.165H36.5l-.167.165h-.166l-.167.165h-.167l-.166.165h-.5l-.167.165h-.333l-.167.164h-1.167l-.166.165H7l-.333-.165H5.5l-.167-.164H5l-.167-.165h-.5l-.166-.165H4l-.167-.165h-.166l-.167-.165h-.167l-.166-.165L3 30.014l-.167-.165h-.166l-.167-.165h-.167L2 29.519l-.167-.165-.166-.165-.167-.329-.167-.165-.166-.165L1 28.2l-.167-.165-.166-.33-.167-.33-.167-.494-.166-.495L0 25.067v-18.8l.333-1.32.167-.659.167-.495.166-.165.167-.33.167-.33.166-.329.167-.165.167-.165.166-.165L2 1.979l.167-.165.166-.165.334-.165.166-.165H3l.167-.165.166-.165L3.5.825h.167L3.833.66h.5L4.5.495H5L5.167.33H5.5l.167-.165h1.166L7 0h26.167l.333.165h1.167l.166.165h.334l.166.165h.5L36 .66h.5l.167.165h.166L37 .989l.167.165.166.165h.167l.167.165.166.165.334.165.166.165.167.165.167.165.166.165.167.165.167.329.166.33.167.33.167.165.166.495.167.659.333 1.32z'
@@ -1456,6 +1455,9 @@ function SvgSchemeMin(props) {
         />
       </g>
       <ellipse
+        id='5'
+        onClick={displaySubMenu}
+        fill={state.tables[4].isOccupied ? '#9b0909' : state.tables[4].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -1463,7 +1465,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 981.175 -400.104)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <g stroke='#000' fill='#D8D8D8'>
         <path
@@ -1516,6 +1517,9 @@ function SvgSchemeMin(props) {
         />
       </g>
       <ellipse
+        id='10'
+        onClick={displaySubMenu}
+        fill={state.tables[9].isOccupied ? '#9b0909' : state.tables[9].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -1523,7 +1527,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 1408.405 -216.068)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <g stroke='#000' fill='#D8D8D8'>
         <path
@@ -1576,6 +1579,9 @@ function SvgSchemeMin(props) {
         />
       </g>
       <ellipse
+        id='7'
+        onClick={displaySubMenu}
+        fill={state.tables[6].isOccupied ? '#9b0909' : state.tables[6].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -1583,7 +1589,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 1196.04 -311.104)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <g stroke='#000' fill='#D8D8D8'>
         <path
@@ -1636,6 +1641,9 @@ function SvgSchemeMin(props) {
         />
       </g>
       <ellipse
+        id='11'
+        onClick={displaySubMenu}
+        fill={state.tables[10].isOccupied ? '#9b0909' : state.tables[10].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -1643,7 +1651,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 1517.239 -478.815)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <g stroke='#000' fill='#D8D8D8'>
         <path
@@ -1696,6 +1703,9 @@ function SvgSchemeMin(props) {
         />
       </g>
       <ellipse
+        id='8'
+        onClick={displaySubMenu}
+        fill={state.tables[7].isOccupied ? '#9b0909' : state.tables[7].color}
         rx={45.416}
         ry={45.5}
         cx={45.416}
@@ -1703,7 +1713,6 @@ function SvgSchemeMin(props) {
         transform='rotate(-45 1304.874 -573.85)'
         stroke='#000'
         strokeWidth={0.333}
-        fill='#8dd84e'
       />
       <path d='M1205.5 508.167h85.314v22H1205.5z' fill='none' />
       <text transform='translate(1205.5 508.167)'>
@@ -1824,9 +1833,11 @@ function SvgSchemeMin(props) {
         />
       </g>
       <path
+        id='15'
+        onClick={displaySubMenu}
+        fill={state.tables[14].isOccupied ? '#9b0909' : state.tables[14].color}
         d='M1037.162 1069.347h74.5v92.69h-74.5z'
         stroke='#000'
-        fill='#8dd84e'
       />
       <g stroke='#000' fill='#FFF'>
         <path d='M1508.667 959.5h41.167V1085h-41.167z' />
@@ -1836,7 +1847,7 @@ function SvgSchemeMin(props) {
         <path
           id='1'
           onClick={displaySubMenu}
-          fill={state.tables[0].isOccupied ? '#9b0909' : '#8dd84e'}
+          fill={state.tables[0].isOccupied ? '#9b0909' : state.tables[0].color}
           d='M365.333 340h74.5v94.001h-74.5z'
           stroke='#000'
         />
@@ -1845,37 +1856,55 @@ function SvgSchemeMin(props) {
         <path
           id='2'
           onClick={displaySubMenu}
-          fill={state.tables[1].isOccupied ? '#9b0909' : '#8dd84e'}
+          fill={state.tables[1].isOccupied ? '#9b0909' : state.tables[1].color}
           d='M550.5 340H625v94.001h-74.5z'
           stroke='#000'
         />
       </g>
       <g>
         <path
+          id='3'
+          onClick={displaySubMenu}
+          fill={state.tables[2].isOccupied ? '#9b0909' : state.tables[2].color}
           d='M735.667 340h74.5v94.001h-74.5z'
           stroke='#000'
-          fill='#8dd84e'
         />
       </g>
       <g>
-        <path d='M482 1070.122h74.5v91.14H482z' stroke='#000' fill='#8dd84e' />
+        <path
+          id='12'
+          onClick={displaySubMenu}
+          fill={
+            state.tables[11].isOccupied ? '#9b0909' : state.tables[11].color
+          }
+          d='M482 1070.122h74.5v91.14H482z'
+          stroke='#000'
+        />
       </g>
       <g>
         <path
+          id='13'
+          onClick={displaySubMenu}
+          fill={
+            state.tables[12].isOccupied ? '#9b0909' : state.tables[12].color
+          }
           d='M665.936 1069.124h74.5v92.913h-74.5z'
           stroke='#000'
-          fill='#8dd84e'
         />
       </g>
       <g>
         <path
+          id='14'
+          onClick={displaySubMenu}
+          fill={
+            state.tables[13].isOccupied ? '#9b0909' : state.tables[13].color
+          }
           d='M852.867 1069.347h74.5v92.69h-74.5z'
           stroke='#000'
-          fill='#8dd84e'
         />
       </g>
     </svg>
   )
 }
 
-export default SvgSchemeMin
+export default Sector1Scheme

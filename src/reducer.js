@@ -25,24 +25,49 @@ export const reducer = (state, action) => {
     return {
       ...state,
       tables: newTables,
+      tableInfo: 0,
+      update: new Date().getTime().toString(),
     }
   }
 
   if (action.type === 'UPDATE_TABLE_INFO') {
-    const showSubMenu = true
     const tableInfo = state.tables.find((table) => table.id === action.payload)
     return {
       ...state,
-      showSubMenu: showSubMenu,
       tableInfo: tableInfo,
     }
   }
 
   if (action.type === 'CHECK_RESERVATION_TIME') {
-    console.log('hello')
-  }
+    const newTables = state.tables.map((item) => {
+      if (item.reservations.length > 0) {
+        let diff =
+          new Date(item.reservations[0].date).getTime() - new Date().getTime()
+        if (diff <= 7200000) {
+          return {
+            ...item,
+            color: '#ec9522',
+          }
+        }
+      }
 
-  if (action.type === 'ADD_RESERVATION') {
+      if (item.reservations.length > 0) {
+        let diff =
+          new Date(item.reservations[0].date).getTime() - new Date().getTime()
+        if (diff > 7200000) {
+          return {
+            ...item,
+            color: '#8dd84e',
+          }
+        }
+      }
+
+      if (item.reservations.length === 0) {
+        return { ...item, color: '#8dd84e' }
+      }
+      return item
+    })
+    return { ...state, tables: newTables }
   }
 
   if (action.type === 'DELETE_RESERVATION') {
@@ -62,6 +87,17 @@ export const reducer = (state, action) => {
     return {
       ...state,
       tables: newTables,
+      tableInfo: 0,
+      update: new Date().getTime.toString(),
+    }
+  }
+
+  if (action.type === 'TOGGLE_BURGER_MENU') {
+    const toggle = !state.isBurgerMenuOpen
+    console.log(toggle)
+    return {
+      ...state,
+      isBurgerMenuOpen: toggle,
     }
   }
 

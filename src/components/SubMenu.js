@@ -34,18 +34,26 @@ const SubMenu = () => {
         <form onSubmit={handleSubmit}>
           <h4>Table No. {id}</h4>
           <p>
-            <button onClick={() => setOccupied(!occupied)}>
+            <button
+              className='btn occupied-btn'
+              onClick={() => setOccupied(!occupied)}
+            >
               {occupied ? 'Table is Free' : 'Table is Occupied'}
             </button>
           </p>
           <p>
             {showDateInput ? (
-              <button type='button' onClick={removeDateInput}>
+              <button
+                className='btn cancel-btn'
+                type='button'
+                onClick={removeDateInput}
+              >
                 Cancel
               </button>
             ) : (
               <button
                 type='button'
+                className='btn reservation-btn'
                 onClick={() => setShowDateInput(!showDateInput)}
               >
                 Add Reservation
@@ -60,7 +68,7 @@ const SubMenu = () => {
           />
           <button
             type='submit'
-            className={showDateInput ? 'submit-btn' : 'submit-btn hide'}
+            className={showDateInput ? 'btn submit-btn' : 'btn submit-btn hide'}
           >
             Submit
           </button>
@@ -69,7 +77,7 @@ const SubMenu = () => {
       {reservations.length > 0 ? (
         <ReservationList reservations={reservations} tableId={id} />
       ) : (
-        <h3>There is no reservations yet</h3>
+        <h3>There are no reservations</h3>
       )}
     </>
   )
